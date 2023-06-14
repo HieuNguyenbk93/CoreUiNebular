@@ -7,5 +7,7 @@ import { NbLoginComponent } from '@nebular/auth';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent extends NbLoginComponent {
-
+  // override login() {
+  //   console.log('123');
+  // }
 }

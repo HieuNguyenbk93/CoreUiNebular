@@ -3,6 +3,7 @@ import { NbAuthComponent } from "@nebular/auth";
 import { LoginComponent } from "./login/login.component";
 
 export const AuthRoutes: Routes = [
+  { path: '', redirectTo: 'login', pathMatch: 'full' },
   {
     path: '',
     component: NbAuthComponent,

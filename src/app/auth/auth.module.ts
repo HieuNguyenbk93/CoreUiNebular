@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { NbAlertModule, NbButtonModule, NbCheckboxModule, NbInputModule } from '@nebular/theme';
 import { AuthRoutes } from './auth.routing';
-import { NbAuthModule, NbPasswordAuthStrategy } from '@nebular/auth';
+import { NbAuthModule, NbDummyAuthStrategy, NbPasswordAuthStrategy } from '@nebular/auth';
 import { LoginComponent } from './login/login.component';
 
 const formSetting: any = {
@@ -27,15 +27,25 @@ const formSetting: any = {
     NbButtonModule,
     NbCheckboxModule,
     RouterModule.forChild(AuthRoutes),
+    // NbAuthModule.forRoot({
+    //   strategies: [
+    //     NbPasswordAuthStrategy.setup({
+    //       name: 'email',
+    //     }),
+    //   ],
+    //   forms: {
+    //     login: formSetting,
+    //   },
+    // }),
     NbAuthModule.forRoot({
       strategies: [
-        NbPasswordAuthStrategy.setup({
+        NbDummyAuthStrategy.setup({
           name: 'email',
         }),
       ],
       forms: {
         login: formSetting,
-      },
+      }
     }),
   ]
 })
