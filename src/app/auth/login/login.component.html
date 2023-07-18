@@ -29,7 +29,7 @@
            placeholder="Email address"
            autofocus
            [status]="email.dirty ? (email.invalid  ? 'danger' : 'success') : ''"
-           [required]="getConfigValue('forms.validation.email.required')"
+           required
            [attr.aria-invalid]="email.invalid && email.touched ? true : null">
     <ng-container *ngIf="email.invalid && email.touched">
       <p class="error-message" *ngIf="email.errors?.['required']">
@@ -52,19 +52,11 @@
            id="input-password"
            placeholder="Password"
            [status]="password.dirty ? (password.invalid  ? 'danger' : 'success') : ''"
-           [required]="getConfigValue('forms.validation.password.required')"
-           [minlength]="getConfigValue('forms.validation.password.minLength')"
-           [maxlength]="getConfigValue('forms.validation.password.maxLength')"
+           required
            [attr.aria-invalid]="password.invalid && password.touched ? true : null">
     <ng-container *ngIf="password.invalid && password.touched ">
       <p class="error-message" *ngIf="password.errors?.['required']">
         Password is required!
-      </p>
-      <p class="error-message" *ngIf="password.errors?.['minlength'] || password.errors?.['maxlength']">
-        Password should contains
-        from {{ getConfigValue('forms.validation.password.minLength') }}
-        to {{ getConfigValue('forms.validation.password.maxLength') }}
-        characters
       </p>
     </ng-container>
   </div>
@@ -78,7 +70,8 @@
           fullWidth
           status="success"
           [disabled]="submitted || !form.valid"
-          [class.btn-pulse]="submitted">
+          [class.btn-pulse]="submitted"
+          [nbSpinner]="loading" nbSpinnerStatus="info">
     Log In
   </button>
 </form>
