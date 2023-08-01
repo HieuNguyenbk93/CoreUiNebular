@@ -1,0 +1,35 @@
+<p>pokemon works!</p>
+<input placeholder="typing name ..." nbInput [formControl]="query">
+
+<table>
+  <thead>
+    <tr>
+      <th class="border-bottom">Name</th>
+      <th class="border-bottom">Detail URL</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let result of listPokemon">
+      <td>{{ result.name }}</td>
+      <td class="border-left">
+        <a [href]="result.url" target="_blank">{{ result.url }}</a>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+<ng-container *ngIf="vm$ | async as vm">
+  <!-- <app-show-total
+    [offset]="vm.currentOffset"
+    [total]="vm.totalCount"
+    [size]="vm.currentSize"
+  ></app-show-total> -->
+  <!-- Display: 1 - 20 of 100 -->
+  <app-paginator
+    [totalRecords]="vm.totalRecords"
+    [rows]="vm.rows"
+    [currentPage]="vm.page"
+    [rowsPerPageOptions]="[1, 2, 10, 20, 50]"
+    (onPageChange)="onPageChanged($event)"
+  ></app-paginator>
+</ng-container>

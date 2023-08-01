@@ -4,12 +4,15 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { NbThemeModule, NbLayoutModule, NbSidebarModule, NbButtonModule, NbMenuModule, NbIconModule, NbToastrModule } from '@nebular/theme';
+import { NbThemeModule, NbLayoutModule, NbSidebarModule, NbButtonModule, NbMenuModule, NbIconModule, NbToastrModule, NbInputModule } from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 import { HttpClientModule } from '@angular/common/http';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { LayoutComponent } from './components/layout/layout.component';
 import { HeaderComponent } from './components/header/header.component';
+import { PokemonComponent } from './components/pokemon/pokemon.component';
+import { PaginatorComponent } from './components/paginator/paginator.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 // import { NbPasswordAuthStrategy, NbAuthModule } from '@nebular/auth';
 
 @NgModule({
@@ -17,13 +20,17 @@ import { HeaderComponent } from './components/header/header.component';
     AppComponent,
     DashboardComponent,
     LayoutComponent,
-    HeaderComponent
+    HeaderComponent,
+    PokemonComponent,
+    PaginatorComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
     NbThemeModule.forRoot({ name: 'default' }),
     NbLayoutModule,
     NbEvaIconsModule,
@@ -31,6 +38,7 @@ import { HeaderComponent } from './components/header/header.component';
     NbButtonModule,
     NbMenuModule.forRoot(),
     NbIconModule,
+    NbInputModule
     // NbAuthModule.forRoot({
     //      strategies: [
     //        NbPasswordAuthStrategy.setup({

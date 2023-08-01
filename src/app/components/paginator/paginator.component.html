@@ -1,0 +1,34 @@
+<p>paginator works!</p>
+<div>
+  <button (click)="changePageToFirst()">
+    <nb-icon icon="arrowhead-left-outline"></nb-icon>
+  </button>
+  <button (click)="changePageToPrev($event)">
+    <nb-icon icon="arrow-ios-back-outline"></nb-icon>
+  </button>
+
+  <!-- <button type="button" *ngFor="let pageLink of pageLinks"
+    class="paginator-page"
+    [class.highlight]="pageLink == currentPage"
+    (click)="onPageLinkClick($event, pageLink)">
+    {{ pageLink }}
+  </button> -->
+  <button type="button" *ngFor="let pageLink of pageLinks"
+    class="paginator-page"
+    [class.highlight]="pageLink == currentPage"
+    (click)="onPageLinkClick($event, pageLink)">
+    {{ pageLink }}
+  </button>
+  <button (click)="changePageToNext($event)">
+    <nb-icon icon="arrow-ios-forward-outline"></nb-icon>
+  </button>
+  <button (click)="changePageToLast()">
+    <nb-icon icon="arrowhead-right-outline"></nb-icon>
+  </button>
+</div>
+<div>
+  Current page Paganitor: {{currentPage}} -- Show rows:
+  <select [(ngModel)]="rows" (change)="changeRow()">
+    <option *ngFor="let item of rowsPerPageOptions" [value]="item">{{item}}</option>
+  </select>
+</div>
